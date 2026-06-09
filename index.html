@@ -56,7 +56,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[6.915741039652949,-6.439535891040873],[6.9280645428803025,-6.420212513814104]]);
+        }).fitBounds([[6.9173707220696645,-6.445216498321995],[6.929694225297018,-6.425893121095226]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -146,6 +146,7 @@
                                               img_bounds_Imagededrone2025_1,
                                               {pane: 'pane_Imagededrone2025_1'});
         bounds_group.addLayer(layer_Imagededrone2025_1);
+        map.addLayer(layer_Imagededrone2025_1);
         function pop_Voirie_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -326,6 +327,7 @@
             style: style_Plandeau_5_0,
         });
         bounds_group.addLayer(layer_Plandeau_5);
+        map.addLayer(layer_Plandeau_5);
         function pop_Parcellethmatique2_6(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -679,8 +681,7 @@
                         <td colspan="2">' + (feature.properties['sup'] !== null ? autolinker.link(String(feature.properties['sup']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Communiqué de presse</th>\
-                        <td class="visible-with-data" id="doc">' + (feature.properties['doc'] !== null ? '<img src="images/' + String(feature.properties['doc']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['doc'] !== null ? '<img src="images/' + String(feature.properties['doc']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
